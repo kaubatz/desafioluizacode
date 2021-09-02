@@ -1,0 +1,11 @@
+{
+  "name": "desafioluizacode",
+  "version": "1.0.0",
+  "description": "projeto final do treinamento Luiza <code> 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mellyssa Mendes, Leticia Gonçalves, Celiane Rocha, Hosana Ferreira, Nathaly Kaubatz",
+  "license": "ISC"
+}
