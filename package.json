@@ -4,8 +4,17 @@
   "description": "projeto final do treinamento Luiza <code> 3",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
   },
   "author": "Mellyssa Mendes, Leticia Gonçalves, Celiane Rocha, Hosana Ferreira, Nathaly Kaubatz",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-router": "0.0.1",
+    "express-routes": "^1.0.1",
+    "express-validator": "^6.12.1",
+    "pg": "^8.7.1",
+    "sequelize": "^6.6.5"
+  }
 }
