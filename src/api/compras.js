@@ -8,7 +8,7 @@ const compraService = new CompraService(compra);
 
 
 
-router.put("/",auth, async (req, res) => {
+router.put("/compra",auth, async (req, res) => {
     // const compra = await compraService.put();
     // res.status(200).json(compra);
 });
