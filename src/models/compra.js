@@ -1,14 +1,18 @@
 const compra = (sequelize, DataTypes) => {
     const Compra = sequelize.define('Compra', {
-        idCompra: {
+        idLoja: {
             type: DataTypes.INTEGER,
             unique: true,
             allowNull: false,
             primaryKey: true
         },
-        idCliente: {
+        idCompra: {
             type: DataTypes.INTEGER,
             unique: true,
+            allowNull: false,
+            foreignKey: true
+        },
+        idCliente: {
             type: DataTypes.INTEGER,
             unique: true,
             allowNull: false,
