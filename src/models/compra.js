@@ -1,12 +1,12 @@
 const compra = (sequelize, DataTypes) => {
     const Compra = sequelize.define('Compra', {
-        idLoja: {
+        idCompra: {
             type: DataTypes.INTEGER,
             unique: true,
             allowNull: false,
             primaryKey: true
         },
-        idCompra: {
+        idLoja: {
             type: DataTypes.INTEGER,
             unique: true,
             allowNull: false,
