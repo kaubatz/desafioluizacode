@@ -1,46 +1,36 @@
 const express = require("express");
 const router = express.Router();
 const { compra } = require("../models");
-const CompraService = require("../service/compra"); 
-const auth = require("./functions");
 
 const compraService = new CompraService(compra);
-
-
-
-router.put("/compra", auth, async (req, res) => {
-    //const compra = await compraService.put();
-    //res.status(200).json(compra);
-});
-
-router.put("/", auth, async (req, res) => {
-
-});
-
-router.put("/", auth, async (req,res) => {
-
-});
-
-router.put("/", auth, async (req, res) => {
-
-});
-
-router.get("/", auth, async (req, res) => {
-    const compra = await compraService.get();
-    res.status(200).json(compra);
-});
-
-
-router.get("/", auth, async (req, res) => {
-    const { idCompra } = req.params 
-
-    try {
-        const compra = await compraService.findById(idCompra).populate({id: idProduto}).populate({id: idcliente})
-        return res.status(200).json(compra)
-    
-    }catch(error){
-        return res.status(400).json(error)
+  
+    async get () {
+      const compras = await this.compra.findAll()
+      return compras
     }
-})
+  
+    async cadastrar (compraDTO) {
+      const {idCompra} = req.params;
+      const compra = { data, valor_total, pagamento, status } = req.body;
 
-module.exports = router;
+      const compra = await compra.create({
+        where: {
+          data: compraDTO.data,
+          valor_total: compraDTO.valor_total,
+          pagamento: compraDTO.pagamento,
+          status: compraDTO.status
+        }
+      })
+      if (compra != null) {
+        throw new Error('Já existe uma compra cadastrada!')
+      }
+      try {
+        await this.compra.create(compraDTO)
+      } catch (erro) {
+        console.erro(erro.message)
+        throw erro
+      }
+    }
+  }
+  
+  module.exports = CompraService
