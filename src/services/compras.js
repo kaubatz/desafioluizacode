@@ -8,11 +8,16 @@ class CompraService {
       return compras
     }
   
-    async adicionar (compraDTO) {
-      // verificar se já existe uma compra 
-      const compra = await this.compra.findOne({
+    async cadastrar (compraDTO) {
+      const {idCompra} = req.params;
+      const compra = { data, valor_total, pagamento, status } = req.body;
+
+      const compra = await compra.create({
         where: {
-          idCompra: compraDTO.idCompra
+          data: compraDTO.data,
+          valor_total: compraDTO.valor_total,
+          pagamento: compraDTO.pagamento,
+          status: compraDTO.status
         }
       })
       if (compra != null) {
