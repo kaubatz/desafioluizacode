@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { compra } = require("../models");
-const CompraService = require("../service/compra");
+const CompraService = require("../service/compra"); 
 const auth = require("./functions");
 
 const compraService = new CompraService(compra);

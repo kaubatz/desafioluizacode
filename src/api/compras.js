@@ -19,7 +19,6 @@ router.post ("/compra" ,auth, async (req, res) => {
 });
 
 
-
 router.put("/",auth,async (req, res) => {
    // const compras = await comprasService.put();
     //res.status(200).json(compras);
@@ -43,16 +42,17 @@ router.get("/", auth, async (req, res) => {
 });
 
 
-//router.get("/",auth, async (req, res) => {
-    //const { idCompra }= req.params
+router.get("/",auth, async (req, res) => {
+    const { idCompra } = req.params
 
-    //try {
-        //const compra = await comprasService.findById(idCompra).populate({ id: idCompra})
-            //return res.status(200).json(compra)
+    try {
+        const compra = await compraService.findById(idCompra).populate({ id: idProduto}).populate({ id: idCliente })
+        return res.status(200).json(compra)
 
-             //}catch(error){
-                // return res.status(400).json(error)
-             //}
-   // })
+    }catch(error){
+            return res.status(400).json(error)
+    }
+})
+ 
+module.exports = router; 
 
-module.exports = router;
