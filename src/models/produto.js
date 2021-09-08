@@ -1,13 +1,16 @@
 const produto = (sequelize, DataTypes) => {
   const produto = sequelize.define('Produto', {
       id: {
-          type: DataTypes.INTEGER
-      },
+        type: DataTypes.INTEGER,
+        unique: true,
+        allowNull: false,
+        primaryKey: true
+    },
       nome: {
           type: DataTypes.VARCHAR
       },
       marca: {
-          type: DataTypes.CHAR
+          type: DataTypes.VARCHAR
       },
       categoria: { 
           type: DataTypes.VARCHAR
@@ -16,7 +19,7 @@ const produto = (sequelize, DataTypes) => {
           type: DataTypes.FLOAT
       }
   }, {
-      tablename: 'cliente'
+      tablename: 'produto'
   })
   return produto
 }
