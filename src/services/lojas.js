@@ -1,13 +1,13 @@
-class lojaServico {
-    constructor (opcaoLoja) {
-      this.loja = opcaoLoja
-    }
-  
-    async get () {
-      const lojas = await this.loja.findAll()
-      return lojas
-    }
-  
+class LojaService {
+  constructor (LojaModel) {
+    this.loja = LojaModel
   }
-  
-  module.exports = lojaServico
+
+  async get () {
+    const lojas = await this.loja.findAll()
+    return lojas
+  }
+
+}
+
+module.exports = LojaService

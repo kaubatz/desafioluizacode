@@ -1,16 +1,13 @@
 const cliente = (sequelize, DataTypes) => {
     const Cliente = sequelize.define('Cliente', {
-        id: {
-            type: DataTypes.INTEGER
-        },
         nomeCompleto: {
-            type: DataTypes.VARCHAR
+            type: DataTypes.STRING(100)
         },
         cpf: {
-            type: DataTypes.CHAR
+            type: DataTypes.STRING(11)
         }, 
         endereco: {
-            type: DataTypes.VARCHAR
+            type: DataTypes.STRING(150)
         }
     }, {
         tablename: 'cliente'
