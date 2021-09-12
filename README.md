@@ -126,5 +126,5 @@ $ npm start
 
 ## Agradecimentos
 
-Agradecimentos a [Gama Academy](https://github.com/gamaacademy) pela imersão incrível que foram essas 5 semanas de Luiza Code, ao [Luizalabs](https://medium.com/luizalabs) por essa iniciativa de atrair e capacitar mulheres na área, a professora [Tainá Medeiros](https://github.com/tainajmedeiros) por toda dedicação e paciência e as meninas da Turma 1 por todos os momentos compartilhados nessa jornada.  
+Agradecimentos a [Gama Academy](https://www.gama.academy/) pela imersão incrível que foram essas 5 semanas de Luiza Code, ao [Luizalabs](https://medium.com/luizalabs) por essa iniciativa de atrair e capacitar mulheres na área, a professora [Tainá Medeiros](https://github.com/tainajmedeiros) por toda dedicação e paciência e as meninas da Turma 1 por todos os momentos compartilhados nessa jornada.  
 
