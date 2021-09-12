@@ -1,34 +1,23 @@
 const loja = (sequelize, DataTypes) => {
-    const Loja = sequelize.define(`Loja`, {
-        ID: {
-            type: DataTypes.INT,
-            unique: false,
-            allowNull: false
-        },
+    const Loja = sequelize.define('Loja', {        
         cnpj: {
-            type: DataTypes.STRING,
-            unique: false,
+            type: DataTypes.STRING(18),
+            unique: true,
             allowNull: false
         },
         nome: {
-            type: DataTypes.STRING,
-            unique: false,
-            allowNull: false  
-        },
-        endereco: {
-            type: DataTypes.STRING,
-            unique: false,
+            type: DataTypes.STRING(100),
             allowNull: false
         },
-         },{
-             tableName: `loja`
-         })
+        endereco: {
+            type: DataTypes.STRING(200),
+            allowNull: false
+        },
+    }, {
+        tableName: 'loja'
+    })
 
-         return Loja
-          }
+    return Loja
+}
 
-          module.exports = loja 
-
-
-
-
+module.exports = loja
