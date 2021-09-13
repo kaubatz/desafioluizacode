@@ -1,7 +1,8 @@
-class CompraService {
-    constructor (CompraModel) {
-      this.compra = CompraModel
-    }
+const express = require("express");
+const router = express.Router();
+const { compra } = require("../models");
+
+const compraService = new CompraService(compra);
   
     async get () {
       const compras = await this.compra.findAll()
