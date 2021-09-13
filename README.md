@@ -45,20 +45,15 @@ $ npm init
 ```
 
 ### Instalação das Dependências
-Instale as dependências do projeto executando os comandos abaixo:
+Instale as dependências do projeto executando o comando abaixo:
 
 ```shell
-$ npm install express
-$ npm install express-routes
-$ npm install express-validation
-$ npm install pg
-$ npm install sequelize
-$ npm install swagger-ui-express
+$ npm install 
 ```
 
 ### Start no servidor
 
-Para dar start no servidor execute o comando:
+Para dar start no servidor e iniciar a aplicação execute o comando:
 
 ```shell
 $ npm start
