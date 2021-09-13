@@ -1,105 +1,135 @@
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <h3 align="center">Magalu Produtos API</h3>
+# Desafio Final - Omni Channel 
+Este projeto tem como objetivo colocar em prática os conhecimentos obtidos durante o Luiza Code - 3a Edição da Gama Academy em parceria com o LuizaLabs - Laboratório de Tecnologia e Inovação do Magazine Luiza.
 
-  <p align="center">
-    Rest API para endpoints do sistema de Produtos!
-    <br />
-  </p>
-</p>
+## O projeto
+Uma das funcionalidades mais interessantes em um e-commerce é a Omni Channel. Ou seja, não há mais diferenças entre lojas físicas ou web. O consumidor pode procurar o produto em uma loja física e comprar pela internet ou vice-versa. Basicamente, o cliente Omni Channel é aquele que utiliza de todos os canais simultaneamente, cruzando compras em ambientes físicos e online.
 
+## Requisitos
+- Adicionar um produto na lista da compra da cliente;
+- Remover um produto da lista da compra da cliente;
+- Consultar todos os produtos disponíveis;
+- Consultar a lista de compras da cliente;
 
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">Sobre o Projeto</a>
-      <ul>
-        <li><a href="#built-with">Rodar com</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Começando</a>
-      <ul>
-        <li><a href="#installation">Instalação</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Uso</a></li>
-    <li><a href="#contact">Contato</a></li>
-  </ol>
-</details>
+## Entregáveis
+- SWAGGER com acesso aos endpoints
+- API contendo os seguintes endpoints:
+  - Listar produtos;
+  - Listar lojas físicas;
+  - Cadastrar cliente;
+  - Adicionar produto na lista de compra do cliente;
+  - Remover produto da lista de compra do cliente;
+  - Finalizar compra;
+  - Consultar compras realizadas da cliente;
 
 
+## Ferramentas utilizadas
+Para executar o projeto será necessário instalar os seguintes programas:
 
-<!-- ABOUT THE PROJECT -->
-## Sobre o projeto
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Node.js](https://nodejs.org/en/)
+* [PostgreSQL](https://www.postgresql.org/download/)
 
-Essa é uma API para endpoints de acesso a informações do produto. 
+## Como executar o projeto
+Antes de iniciar o projeto, instale as Ferramentas listadas acima em sua máquina. É necessário clonar o projeto do GitHub num diretório de sua preferência através do terminal:
 
-[![Imagem do Swagger Completo][swagger-completo]]
+```shell
+# Clonando o repositório
+git clone https://github.com/kaubatz/desafioluizacode.git
+```
 
+### Acessando o repositório no terminal
+Executando o projeto:
+```shell
+$ cd /desafioluizacode
+$ npm init
+```
 
-O projeto é formado pela seguinte estrutura:
-* Acesso aos endpoints para ser usado por uma aplicação frontend.
-* Endpoints that will be used to write error logs to a relational database
-* The API allows access only with a valid authentication token 
+### Instalação das Dependências
+Instale as dependências do projeto executando o comando abaixo:
 
-:smile:
+```shell
+$ npm install 
+```
+### Start no servidor
 
-### Rodar com
+Para dar start no servidor e iniciar a aplicação execute o comando:
 
-O projeto foi criado usando as tecnologias:
-* [Javasdcript]
-* [NodeJs]
-* [Postgres]
+```shell
+$ npm start
+```
+### Utilizando o Swagger para testar os serviços Web API
+No terminal execute os comandos abaixo:
 
+``` shell
+$ npm run swagger-gen
+```
 
-<!-- GETTING STARTED -->
-## Começando
+Acesse o seguinte endereço no navegador para visualização da API
+``` shell
+http://localhost:3001/docs
+```
 
-Siga as instruções para executar a API.
+## Squad ENIAC GIRLS
 
-### Instalando
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/celianebr">
+        <img src="https://github.com/celianebr.png" width="100px;" alt="Foto de Celiane Brasil"/><br>
+        <sub>
+          <b>Celiane Brasil</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/hosanasf">
+        <img src="https://github.com/hosanasf.png" width="100px;" alt="Foto de Hosana"/><br>
+        <sub>
+          <b>Hosana</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Leticianunes2">
+        <img src="https://github.com/Leticianunes2.png" width="100px;" alt="Foto de Leticia Nunes"/><br>
+        <sub>
+          <b>Leticia Nunes</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/kaubatz">
+        <img src="https://github.com/kaubatz.png" width="100px;" alt="Foto de Nathaly Kaubatz"/><br>
+        <sub>
+          <b>Nathaly Kaubatz</b>
+        </sub>
+      </a>
+    <td align="center">
+      <a href="https://github.com/mellyssaStephanny">
+        <img src="https://github.com/mellyssaStephanny.png" width="100px;" alt="Foto de Mellyssa Stephanny"/><br>
+        <sub>
+          <b>Mellyssa Stephanny</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
-1. Clone o repositório
-   ```sh
-   git clone https://github.com/tainajmedeiros/MagaluProdBDSwagger.git
-   ```
-2. Para atualizar documentação do swagger
-   ```sh
-   npm swagger
-   ```
-3. Subindo o servidor
-   ```sh
-   npm start
-   ```
+## Instrutora
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/tainajmedeiros">
+        <img src="https://github.com/tainajmedeiros.png" width="100px;" alt="Foto de Tainá Medeiros"/><br>
+        <sub>
+          <b>Tainá Medeiros</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
-[![Tela com os comandos dos scripts][imagem-script]]
+## Agradecimentos
 
+Agradecimentos a [Gama Academy](https://www.gama.academy/) pela imersão incrível que foram essas 5 semanas de Luiza Code, ao [Luizalabs](https://medium.com/luizalabs) por essa iniciativa de atrair e capacitar mulheres na área, a professora [Tainá Medeiros](https://github.com/tainajmedeiros) por toda dedicação e paciência e as meninas da Turma 1 por todos os momentos compartilhados nessa jornada.  
 
-<!-- USAGE EXAMPLES -->
-## Usando
-
-Voce tem acesso aos endpoints, produto e fornecedo.
-
-_Produtos Endpoints_
-[![Swagger de produto][swagger-endpoint-produto]]
-
-<!-- CONTACT -->
-## Contato
-
-Tainá Medeiros - [@taina_medeiros](https://twitter.com/taina_medeiros) - tainajmedeiros@gmail.com
-
-LinkedIn: [/tainamedeiros](https://www.linkedin.com/in/tainamedeiros)
-
-Project Link: [https://github.com/tainajmedeiros/MagaluProdBDSwagger](https://github.com/tainajmedeiros/MagaluProdBDSwagger)
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-[swagger-completo]: images/swagger-completo.png
-[imagem-script]: images/imagem-scripts.png
-[swagger-endpoint-produto]: images/swagger-endpoint-produto.png

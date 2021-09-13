@@ -13,8 +13,10 @@
     "express": "^4.17.1",
     "express-router": "0.0.1",
     "express-routes": "^1.0.1",
+    "express-validation": "^3.0.8",
     "express-validator": "^6.12.1",
     "pg": "^8.7.1",
-    "sequelize": "^6.6.5"
+    "sequelize": "^6.6.5",
+    "swagger-ui-express": "^4.1.6"
   }
 }
