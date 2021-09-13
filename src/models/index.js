@@ -5,7 +5,7 @@ const Loja = require('./loja');
 const Produto = require('./produto');
 const Cliente = require('./cliente');
 const Compra = require('./compra');
-const Usuario = require('./usuario');
+const Usuario = require('../api/usuario');
 
 const loja = Loja(sequelize, Sequelize.DataTypes);
 const produto = Produto(sequelize, Sequelize.DataTypes);
