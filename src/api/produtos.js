@@ -1,37 +1,34 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router()
-const { produto } = require("../models/produtos")
-const ProdutoService = require("../services/produtos")
-const { body, check, validationResult } = require("express-validator")
+const { produto } = require('../models')
+const ProdutoService = require('../services/produtos')
+//const { body, check, validationResult } = require('express-validator')
+const autenticacao = require('./functions')
+
 const produtoService = new ProdutoService(produto)
 
-router.get("/produtos", (req, res) => {
+router.get('/', autenticacao, async (req, res) => {
+    /*
+    #swagger.tags = ['Produtos']
+    #swagger.description = 'Endpoint parra obter uma lista de produto' 
+
+    #swagger.security = [{
+      "apiKeyAuth": []
+    }]
+    
+    #swagger.responses[200] = {
+      schema: { $ref: "#/definitions/Produto"},
+      description: 'Produto encontrado'
+    }
+    #swagger.responses[404] = {
+      description: 'Produto não encontrado'
+    }
+    #swagger.responses[400] = {
+      description: 'Desculpe, tivemos um problema com a requisição'
+    }
+  */
     const produtos = await produtoService.get()
     res.status(200).json(produtos)
-})
-
-router.post("/produtos",
-    body('nome').not().isEmpty().trim().escape(),
-    check('preco'),
-        .not().isEmpty()
-        .matches(/\d/)
-        .withMessage('Deve ser um número válido!'),
-    async (req, res) => {
-
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() })
-    }
-
-    const {id, nome, marca, preco, categoria} = req.body
-    try {
-        await produtoService.adicionar({id, nome, marca, preco, categoria})
-        res.status(201).send("Produto cadastrad no Catálogo")
-    } catch(error) {
-        res.status(200).send("Não foi possível adicionar o produto")
-    }
-    produto.create()
-    res.status(400).send("Produto cadastrado com sucesso!")
 })
 
 module.exports = router
