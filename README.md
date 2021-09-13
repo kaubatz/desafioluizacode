@@ -1,5 +1,5 @@
 # Desafio Final - Omni Channel 
-### Este projeto tem como objetivo colocar em prática os conhecimentos obtidos durante o Luiza Code - 3a Edição da Gama Academy em parceria com o LuizaLabs - Laboratório de Tecnologia e Inovação do Magazine Luiza.
+Este projeto tem como objetivo colocar em prática os conhecimentos obtidos durante o Luiza Code - 3a Edição da Gama Academy em parceria com o LuizaLabs - Laboratório de Tecnologia e Inovação do Magazine Luiza.
 
 ## O projeto
 Uma das funcionalidades mais interessantes em um e-commerce é a Omni Channel. Ou seja, não há mais diferenças entre lojas físicas ou web. O consumidor pode procurar o produto em uma loja física e comprar pela internet ou vice-versa. Basicamente, o cliente Omni Channel é aquele que utiliza de todos os canais simultaneamente, cruzando compras em ambientes físicos e online.
@@ -50,13 +50,23 @@ Instale as dependências do projeto executando o comando abaixo:
 ```shell
 $ npm install 
 ```
-
 ### Start no servidor
 
 Para dar start no servidor e iniciar a aplicação execute o comando:
 
 ```shell
 $ npm start
+```
+### Utilizando o Swagger para testar os serviços Web API
+No terminal execute os comandos abaixo:
+
+``` shell
+$ npm run swagger-gen
+```
+
+Acesse o seguinte endereço no navegador para visualização da API
+``` shell
+http://localhost:3001/docs
 ```
 
 ## Squad ENIAC GIRLS
