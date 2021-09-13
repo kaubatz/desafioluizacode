@@ -1,58 +1,74 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router ();
-const { compras } = require(`../models`);
-const ComprasService = require(`../services/compras`);
-const auth = require ("./functions");
+const { compra, item } = require('../models');
+const CompraService = require('../services/compras');
+const autenticacao = require ('./functions');
 
-const comprasService = new ComprasService(compras);
+const compraService = new CompraService(compra);
 
-router.post ("/compra" ,auth, async (req, res) => {
-    const {idCliente, idLoja, data, itens, valorTotal, pagamento, status} = req.body;
-    try{
-        await compra.create ({idCliente, idLoja, data, itens, valorTotal, pagamento, status});
-        res.status(201).send("compra criada com sucesso");
+router.get('/', autenticacao, async (req, res) => {
+    /*
+    #swagger.tags = ['Compras']
+    #swagger.description = 'Endpoint parra obter uma lista de compras' 
 
-    }catch(erro){
-        res.status(400).send("erro ao cadastrar compra");
-        
+    #swagger.security = [{
+      "apiKeyAuth": []
+    }]
+    
+    #swagger.responses[200] = {
+      schema: { $ref: "#/definitions/Compras"},
+      description: 'Compra encontrada'
     }
-});
-
-
-router.put("/",auth,async (req, res) => {
-   // const compras = await comprasService.put();
-    //res.status(200).json(compras);
-});
-
-router.put ("/", auth, async (req, res) => {
-
-});
-
-router.put("/",auth, async (req, res) => {
-
-});
-
-router.put("/", auth, async (req, res) => {
-
-})
-
-router.get("/", auth, async (req, res) => {
-    const compra = await comprasService.get();
-    res.status(200).json(compra);
-});
-
-
-router.get("/",auth, async (req, res) => {
-    const { idCompra } = req.params
-
-    try {
-        const compra = await compraService.findById(idCompra).populate({ id: idProduto}).populate({ id: idCliente })
-        return res.status(200).json(compra)
-
-    }catch(error){
-            return res.status(400).json(error)
+    #swagger.responses[404] = {
+      description: 'Compra não encontrada'
     }
-})
- 
+    #swagger.responses[400] = {
+      description: 'Desculpe, tivemos um problema com a requisição'
+    }
+  */
+
+    const compras = await compraService.get(); 
+    // colocar o filtro de id do cliente, fazer o join dos produtos
+    res.status(200).json(compras);
+});
+
+router.post (
+    '/compra', 
+    autenticacao, 
+    //fazer validação    
+    async (req, res) => {
+
+        let id_compra;
+
+        const novaCompra = await this.compra.findOne({
+            where: {
+              cliente_id: req.body.cliente_id,
+              status: 'EM ANDAMENTO'
+            }
+          })
+
+        if (novaCompra == null) {
+            try{
+                id_compra = await compra.create({
+                    loja_id: req.body.idLoja, 
+                    cliente_id: req.bosy.idCliente, 
+                    data: req.body.data, 
+                    valorTotal: req.body.valor_total, 
+                    pagamento: req.body.pagamento, 
+                    status: req.body.status
+                });
+                res.status(201).send('compra criada com sucesso');
+            }catch(erro){
+                res.status(400).send('erro ao cadastrar compra');
+            }
+          } else {
+              id_compra = novaCompra.id_compra;
+          }
+
+        await item.create({
+            compra_id: id_compra,
+            produto_id: req.body.id_prod
+        });    
+});
+
 module.exports = router; 
-

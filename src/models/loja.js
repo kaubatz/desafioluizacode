@@ -13,7 +13,3 @@ const loja = (sequelize, DataTypes) => {
 }
 
 module.exports = loja;
-
-
-
-
