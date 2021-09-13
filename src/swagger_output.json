@@ -1,0 +1,403 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Desafio Luiza<code> - Squad C: ENIAC girls",
+    "description": "Projeto desenvolvido para o desafio final do Luiza<code> 3"
+  },
+  "host": "localhost:3001",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Produto",
+      "description": "Endpoints relacionados ao recurso de produto"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "authorization",
+      "description": "Insira seu token para garantir acesso aos endpoints"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/lojas/": {
+      "get": {
+        "tags": [
+          "Lojas"
+        ],
+        "description": "Endpoint parra obter uma lista de lojas",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Loja encontrada",
+            "schema": {
+              "$ref": "#/definitions/Loja"
+            }
+          },
+          "400": {
+            "description": "Desculpe, tivemos um problema com a requisição"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Loja não encontrada"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/produtos/": {
+      "get": {
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Endpoint parra obter uma lista de produto",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Produto encontrado",
+            "schema": {
+              "$ref": "#/definitions/Produto"
+            }
+          },
+          "400": {
+            "description": "Desculpe, tivemos um problema com a requisição"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Produto não encontrado"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/clientes/": {
+      "get": {
+        "tags": [
+          "Clientes"
+        ],
+        "description": "Endpoint parra obter uma lista de clientes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Cliente encontrado",
+            "schema": {
+              "$ref": "#/definitions/Cliente"
+            }
+          },
+          "400": {
+            "description": "Desculpe, tivemos um problema com a requisição"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Cliente não encontrado"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/clientes\r/": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "cpf": {
+                  "example": "any"
+                },
+                "endereco": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/compras/": {
+      "get": {
+        "tags": [
+          "Compras"
+        ],
+        "description": "Endpoint parra obter uma lista de compras",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Compra encontrada",
+            "schema": {
+              "$ref": "#/definitions/Compras"
+            }
+          },
+          "400": {
+            "description": "Desculpe, tivemos um problema com a requisição"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Compra não encontrada"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/compras\r/compra": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cliente_id": {
+                  "example": "any"
+                },
+                "idLoja": {
+                  "example": "any"
+                },
+                "data": {
+                  "example": "any"
+                },
+                "valor_total": {
+                  "example": "any"
+                },
+                "pagamento": {
+                  "example": "any"
+                },
+                "status\r": {
+                  "example": "any"
+                },
+                "id_prod\r": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/usuarios/": {
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "description": "Endpoint parra obter uma lista de usuários",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Usuario encontrado",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          },
+          "400": {
+            "description": "Desculpe, tivemos um problema com a requisição"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Usuario não encontrado"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "senha": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/usuarios/login": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "senha": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Produto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "nome": {
+          "type": "string",
+          "example": "Notebook Aspire 3"
+        },
+        "marca": {
+          "type": "string",
+          "example": "acer"
+        },
+        "categoria": {
+          "type": "string",
+          "example": "Informática"
+        },
+        "preco": {
+          "type": "number",
+          "example": 5000
+        }
+      }
+    },
+    "NovoProduto": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "example": "Monitor Pro Gamer"
+        },
+        "marca": {
+          "type": "string",
+          "example": "LG"
+        },
+        "categoria": {
+          "type": "string",
+          "example": "Informática"
+        },
+        "preco": {
+          "type": "number",
+          "example": 1500
+        }
+      },
+      "required": [
+        "nome",
+        "marca",
+        "categoria",
+        "preco"
+      ]
+    }
+  }
+}
