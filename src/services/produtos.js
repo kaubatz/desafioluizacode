@@ -1,30 +1,30 @@
 class ProdutoService {
-    constructor (ProdutoModel) {
-      this.produto = ProdutoModel
-    }
-  
-    async get () {
-      const produtos = await this.produto.findAll()
-      return produtos
-    }
-  
-    async adicionar (produtoMagalu) {
-      // verifica se existe produto com o mesmo nome
-      const produto = await this.produto.findOne({
-        where: {
-          nome: produtoMagalu.nome
-        }
-      })
-      if (produto != null) {
-        throw new Error("Existe um produto cadastrado com esse nome!")
+  constructor (ProdutoModel) {
+    this.produto = ProdutoModel
+  }
+
+  async get () {
+    const produtos = await this.produto.findAll()
+    return produtos
+  }
+
+  async adicionar (produtoDTO) {
+    // verifica se existe produto com o mesmo nome
+    const produto = await this.produto.findOne({
+      where: {
+        nome: produtoDTO.nome
       }
-      try {
-        await this.produto.create(produtoMagalu)
-      } catch (erro) {
-        console.erro(erro.message)
-        throw erro
-      }
+    })
+    if (produto != null) {
+      throw new Error("Existe um produto cadastrado com esse nome!")
+    }
+    try {
+      await this.produto.create(produtoDTO)
+    } catch (erro) {
+      console.erro(erro.message)
+      throw erro
     }
   }
-  
-  module.exports = ProdutoService
+}
+
+module.exports = ProdutoService
