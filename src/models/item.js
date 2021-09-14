@@ -4,7 +4,7 @@ const item = (sequelize, DataTypes) => {
         produto_id: DataTypes.INTEGER,            
         quantidade: DataTypes.INTEGER,            
         valorTotal: DataTypes.FLOAT        
-    }, { timestamps: false, tableName: 'item' })
+    }, { tableName: 'item' })
 
     Item.associate = (models) => {
         Item.belongsTo(models.Compra, { 

@@ -3,7 +3,7 @@ const usuario = (sequelize, DataTypes) => {
       nome: DataTypes.STRING(100),
       email: DataTypes.STRING(200),
       senha: DataTypes.STRING
-    }, { timestamps: false, tableName: 'usuario' })
+    }, { tableName: 'usuario' })
   
     return Usuario
   }

@@ -5,7 +5,7 @@ const cliente = (sequelize, DataTypes) => {
         endereco: DataTypes.STRING(150),
         email: DataTypes.STRING(150),
         usuario_id: DataTypes.INTEGER
-    }, { timestamps: false, tableName: 'cliente' })
+    }, { tableName: 'cliente' })
     
     Cliente.associate = (models) => {
         Cliente.belongsTo(models.Usuario, { 

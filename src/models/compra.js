@@ -9,7 +9,7 @@ const compra = (sequelize, DataTypes) => {
         pagamento: DataTypes.STRING(15), //dinheiro, crédito, débito, boleto
         status: { type: DataTypes.STRING(25), 
                   defaultValue: 'EM ANDAMENTO' } //em andamento, finalizada, entregue
-    }, { timestamps: false, tableName: 'compra' })
+    }, { tableName: 'compra' })
 
     Compra.associate = (models) => {
         Compra.hasMany(models.Item,

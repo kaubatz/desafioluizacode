@@ -3,7 +3,7 @@ const loja = (sequelize, DataTypes) => {
         cnpj: DataTypes.STRING(18),
         nome: DataTypes.STRING(100),
         endereco: DataTypes.STRING(200)
-    }, { timestamps: false, tableName: 'loja' })
+    }, { tableName: 'loja' })
 
     Loja.associate = (models) => {
         Loja.hasMany(models.Compra, {as: 'compras'})
