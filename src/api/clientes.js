@@ -21,14 +21,9 @@ router.get('/',autenticacao, async (req, res) => {
     
     #swagger.responses[200] = {
       schema: { $ref: "#/definitions/Cliente"},
-      description: 'Cliente encontrado'
+      description: 'Clientes encontrados'
     }
-    #swagger.responses[404] = {
-      description: 'Cliente não encontrado'
-    }
-    #swagger.responses[400] = {
-      description: 'Desculpe, tivemos um problema com a requisição'
-    }
+
   */
     const clientes = await clienteService.get();
     res.status(200).json(clientes);
@@ -48,13 +43,11 @@ router.post('/',
         "apiKeyAuth": []
       }]
       
-      #swagger.responses[200] = {
+      #swagger.responses[201] = {
         schema: { $ref: "#/definitions/Cliente"},
-        description: 'Cliente encontrado'
+        description: 'Cliente cadastrado'
       }
-      #swagger.responses[404] = {
-        description: 'Cliente não encontrado'
-      }
+
       #swagger.responses[400] = {
         description: 'Desculpe, tivemos um problema com a requisição'
       }

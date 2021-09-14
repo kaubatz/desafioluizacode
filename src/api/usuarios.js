@@ -12,7 +12,7 @@ const usuarioService = new UsuarioService(usuario);
 router.get('/', autenticacao, async (req, res) => {
   /*
     #swagger.tags = ['Usuario']
-    #swagger.description = 'Endpoint parra obter uma lista de usuários' 
+    #swagger.description = 'Endpoint para obter uma lista de usuários' 
 
     #swagger.security = [{
       "apiKeyAuth": []
@@ -20,13 +20,7 @@ router.get('/', autenticacao, async (req, res) => {
     
     #swagger.responses[200] = {
       schema: { $ref: "#/definitions/Usuario"},
-      description: 'Usuario encontrado'
-    }
-    #swagger.responses[404] = {
-      description: 'Usuario não encontrado'
-    }
-    #swagger.responses[400] = {
-      description: 'Desculpe, tivemos um problema com a requisição'
+      description: 'Usuarios encontrados'
     }
   */
     const usuarios = await usuarioService.get();
@@ -37,24 +31,21 @@ router.post('/',
   async (req, res) => {
 
     /*
-    #swagger.tags = ['Usuario']
-    #swagger.description = 'Endpoint para cadastrar um novo usuário' 
+      #swagger.tags = ['Usuario']
+      #swagger.description = 'Endpoint para cadastrar um novo usuário' 
 
-    #swagger.security = [{
-      "apiKeyAuth": []
-    }]
-    
-    #swagger.responses[200] = {
-      schema: { $ref: "#/definitions/Usuario"},
-      description: 'Usuario encontrado'
-    }
-    #swagger.responses[404] = {
-      description: 'Usuario não encontrado'
-    }
-    #swagger.responses[400] = {
-      description: 'Desculpe, tivemos um problema com a requisição'
-    }
-  */
+      #swagger.security = [{
+        "apiKeyAuth": []
+      }]
+      
+      #swagger.responses[201] = {
+        schema: { $ref: "#/definitions/Usuario"},
+        description: 'Usuario cadastrado'
+      }
+      #swagger.responses[400] = {
+        description: 'Desculpe, tivemos um problema com a requisição'
+      }
+    */
     const { nome, email, senha } = req.body
     try {
       await usuario.create({ nome, email, senha })
@@ -69,24 +60,24 @@ router.post('/login',
   async (req, res) => {
 
     /*
-    #swagger.tags = ['Usuario']
-    #swagger.description = 'Endpoint para gerar um token de usuário' 
+      #swagger.tags = ['Usuario']
+      #swagger.description = 'Endpoint para gerar um token de usuário' 
 
-    #swagger.security = [{
-      "apiKeyAuth": []
-    }]
-    
-    #swagger.responses[200] = {
-      schema: { $ref: "#/definitions/Usuario"},
-      description: 'Usuario encontrado'
-    }
-    #swagger.responses[404] = {
-      description: 'Usuario não encontrado'
-    }
-    #swagger.responses[400] = {
-      description: 'Desculpe, tivemos um problema com a requisição'
-    }
-  */
+      #swagger.security = [{
+        "apiKeyAuth": []
+      }]
+      
+      #swagger.responses[200] = {
+        schema: { $ref: "#/definitions/Usuario"},
+        description: 'Usuario encontrado'
+      }
+      #swagger.responses[404] = {
+        description: 'Email não cadastrado'
+      }
+      #swagger.responses[400] = {
+        description: 'Erro ao gerar token'
+      }
+    */
 
     const errors = validationResult(req)
     if (!errors.isEmpty()) {

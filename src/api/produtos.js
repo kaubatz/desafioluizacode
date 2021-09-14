@@ -9,24 +9,18 @@ const produtoService = new ProdutoService(produto)
 
 router.get('/', autenticacao, async (req, res) => {
     /*
-    #swagger.tags = ['Produto']
-    #swagger.description = 'Endpoint parra obter uma lista de produto' 
+      #swagger.tags = ['Produto']
+      #swagger.description = 'Endpoint parra obter uma lista de produtos' 
 
-    #swagger.security = [{
-      "apiKeyAuth": []
-    }]
-    
-    #swagger.responses[200] = {
-      schema: { $ref: "#/definitions/Produto"},
-      description: 'Produto encontrado'
-    }
-    #swagger.responses[404] = {
-      description: 'Produto não encontrado'
-    }
-    #swagger.responses[400] = {
-      description: 'Desculpe, tivemos um problema com a requisição'
-    }
-  */
+      #swagger.security = [{
+        "apiKeyAuth": []
+      }]
+      
+      #swagger.responses[200] = {
+        schema: { $ref: "#/definitions/Produto"},
+        description: 'Produto encontrado'
+      }
+    */
     const produtos = await produtoService.get()
     res.status(200).json(produtos)
 })
