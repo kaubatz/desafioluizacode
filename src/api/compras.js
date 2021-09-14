@@ -17,14 +17,8 @@ router.get("/:id", autenticacao, async (req, res) => {
       
       #swagger.responses[200] = {
         schema: { $ref: "#/definitions/Compras"},
-        description: 'Compra encontrada'
-      }
-      #swagger.responses[404] = {
-        description: 'Compra não encontrada'
-      }
-      #swagger.responses[400] = {
-        description: 'Desculpe, tivemos um problema com a requisição'
-      }
+        description: 'Compras encontradas'
+      }            
   */
   const compras = await compraService.get(req.params.id);
   res.status(200).json(compras);
@@ -126,6 +120,25 @@ router.post("/",autenticacao, async (req, res) => {
 );
 
 router.delete('/:cli/:prod', autenticacao, async(req, res) => {
+  /*
+      #swagger.tags = ['Compra']
+      #swagger.description = 'Endpoint para excluir um produto da compra' 
+
+      #swagger.security = [{
+        "apiKeyAuth": []
+      }]
+      
+      #swagger.responses[200] = {
+        schema: { $ref: "#/definitions/Compras"},
+        description: 'Compra encontrada'
+      }
+      #swagger.responses[404] = {
+        description: 'Compra não encontrada'
+      }
+      #swagger.responses[400] = {
+        description: 'Desculpe, tivemos um problema com a requisição'
+      }
+  */
   const compras = await compra.findOne({
     where: {
       ClienteId: req.params.cli,
@@ -159,8 +172,27 @@ router.delete('/:cli/:prod', autenticacao, async(req, res) => {
 })
 
 router.put('/finalizar', autenticacao, async(req, res) => {
+  /*
+      #swagger.tags = ['Compra']
+      #swagger.description = 'Endpoint para atualizar o status da compra para REALIZADA' 
+
+      #swagger.security = [{
+        "apiKeyAuth": []
+      }]
+      
+      #swagger.responses[200] = {
+        schema: { $ref: "#/definitions/Compras"},
+        description: 'Compra encontrada'
+      }
+      #swagger.responses[404] = {
+        description: 'Compra não encontrada'
+      }
+      #swagger.responses[400] = {
+        description: 'Desculpe, tivemos um problema com a requisição'
+      }
+  */
   try{
-    await compra.update({status: 'EM ANDAMENTO'}, {
+    await compra.update({status: 'REALIZADA'}, {
       where: { id: req.body.idCompra }
     });
 
@@ -171,6 +203,26 @@ router.put('/finalizar', autenticacao, async(req, res) => {
 });
 
 router.put('/retirar', autenticacao, async(req, res) => {
+  /*
+      #swagger.tags = ['Compra']
+      #swagger.description = 'Endpoint para atualizar o status da compra para RETIRADO' 
+
+      #swagger.security = [{
+        "apiKeyAuth": []
+      }]
+      
+      #swagger.responses[200] = {
+        schema: { $ref: "#/definitions/Compras"},
+        description: 'Compra encontrada'
+      }
+      #swagger.responses[404] = {
+        description: 'Compra não encontrada'
+      }
+      #swagger.responses[400] = {
+        description: 'Desculpe, tivemos um problema com a requisição'
+      }
+  */
+
 
   try{
     await compra.update({status: 'RETIRADO'}, {

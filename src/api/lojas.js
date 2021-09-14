@@ -10,7 +10,7 @@ const lojaService = new LojaService(loja);
 router.get('/', autenticacao, async (req, res) => {
   /*
     #swagger.tags = ['Loja']
-    #swagger.description = 'Endpoint parra obter uma lista de lojas' 
+    #swagger.description = 'Endpoint para obter uma lista de lojas' 
 
     #swagger.security = [{
       "apiKeyAuth": []
@@ -18,13 +18,7 @@ router.get('/', autenticacao, async (req, res) => {
     
     #swagger.responses[200] = {
       schema: { $ref: "#/definitions/Loja"},
-      description: 'Loja encontrada'
-    }
-    #swagger.responses[404] = {
-      description: 'Loja não encontrada'
-    }
-    #swagger.responses[400] = {
-      description: 'Desculpe, tivemos um problema com a requisição'
+      description: 'Lojas encontradas'
     }
   */
   const lojas = await lojaService.get();

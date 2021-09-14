@@ -53,23 +53,17 @@
         "tags": [
           "Loja"
         ],
-        "description": "Endpoint parra obter uma lista de lojas",
+        "description": "Endpoint para obter uma lista de lojas",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "Loja encontrada",
+            "description": "Lojas encontradas",
             "schema": {
               "$ref": "#/definitions/Loja"
             }
           },
-          "400": {
-            "description": "Desculpe, tivemos um problema com a requisição"
-          },
           "401": {
             "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Loja não encontrada"
           }
         },
         "security": [
@@ -84,7 +78,7 @@
         "tags": [
           "Produto"
         ],
-        "description": "Endpoint parra obter uma lista de produto",
+        "description": "Endpoint parra obter uma lista de produtos",
         "parameters": [],
         "responses": {
           "200": {
@@ -93,14 +87,8 @@
               "$ref": "#/definitions/Produto"
             }
           },
-          "400": {
-            "description": "Desculpe, tivemos um problema com a requisição"
-          },
           "401": {
             "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Produto não encontrado"
           }
         },
         "security": [
@@ -119,19 +107,13 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "Cliente encontrado",
+            "description": "Clientes encontrados",
             "schema": {
               "$ref": "#/definitions/Cliente"
             }
           },
-          "400": {
-            "description": "Desculpe, tivemos um problema com a requisição"
-          },
           "401": {
             "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Cliente não encontrado"
           }
         },
         "security": [
@@ -169,20 +151,14 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
+            "description": "Cliente cadastrado",
             "schema": {
               "$ref": "#/definitions/Cliente"
-            },
-            "description": "Cliente encontrado"
-          },
-          "201": {
-            "description": "Created"
+            }
           },
           "400": {
             "description": "Desculpe, tivemos um problema com a requisição"
-          },
-          "404": {
-            "description": "Cliente não encontrado"
           }
         },
         "security": [
@@ -208,19 +184,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Compra encontrada",
+            "description": "Compras encontradas",
             "schema": {
               "$ref": "#/definitions/Compras"
             }
           },
-          "400": {
-            "description": "Desculpe, tivemos um problema com a requisição"
-          },
           "401": {
             "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Compra não encontrada"
           }
         },
         "security": [
@@ -291,8 +261,10 @@
     },
     "/compras/{cli}/{prod}": {
       "delete": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Compra"
+        ],
+        "description": "Endpoint para excluir um produto da compra",
         "parameters": [
           {
             "name": "cli",
@@ -309,79 +281,9 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
-    "/compras/finalizar": {
-      "put": {
-        "tags": [],
-        "description": "",
-        "parameters": [
-          {
-            "name": "obj",
-            "in": "body",
+            "description": "Compra encontrada",
             "schema": {
-              "type": "object",
-              "properties": {
-                "idCompra": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "Unauthorized"
-          }
-        }
-      }
-    },
-    "/compras/entregar": {
-      "put": {
-        "tags": [],
-        "description": "",
-        "parameters": [
-          {
-            "name": "obj",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "idCompra": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "Unauthorized"
-          }
-        }
-      }
-    },
-    "/usuarios/": {
-      "get": {
-        "tags": [
-          "Usuario"
-        ],
-        "description": "Endpoint parra obter uma lista de usuários",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Usuario encontrado",
-            "schema": {
-              "$ref": "#/definitions/Usuario"
+              "$ref": "#/definitions/Compras"
             }
           },
           "400": {
@@ -391,7 +293,120 @@
             "description": "Unauthorized"
           },
           "404": {
-            "description": "Usuario não encontrado"
+            "description": "Compra não encontrada"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/compras/finalizar": {
+      "put": {
+        "tags": [
+          "Compra"
+        ],
+        "description": "Endpoint para atualizar o status da compra para REALIZADA",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idCompra": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Compra encontrada",
+            "schema": {
+              "$ref": "#/definitions/Compras"
+            }
+          },
+          "400": {
+            "description": "Desculpe, tivemos um problema com a requisição"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Compra não encontrada"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/compras/retirar": {
+      "put": {
+        "tags": [
+          "Compra"
+        ],
+        "description": "Endpoint para atualizar o status da compra para RETIRADO",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idCompra": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Compra encontrada",
+            "schema": {
+              "$ref": "#/definitions/Compras"
+            }
+          },
+          "400": {
+            "description": "Desculpe, tivemos um problema com a requisição"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Compra não encontrada"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/usuarios/": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "description": "Endpoint para obter uma lista de usuários",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Usuarios encontrados",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -426,20 +441,14 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
+            "description": "Usuario cadastrado",
             "schema": {
               "$ref": "#/definitions/Usuario"
-            },
-            "description": "Usuario encontrado"
-          },
-          "201": {
-            "description": "Created"
+            }
           },
           "400": {
             "description": "Desculpe, tivemos um problema com a requisição"
-          },
-          "404": {
-            "description": "Usuario não encontrado"
           }
         },
         "security": [
@@ -480,13 +489,13 @@
             }
           },
           "400": {
-            "description": "Desculpe, tivemos um problema com a requisição"
+            "description": "Erro ao gerar token"
           },
           "401": {
             "description": "Unauthorized"
           },
           "404": {
-            "description": "Usuario não encontrado"
+            "description": "Email não cadastrado"
           }
         },
         "security": [
@@ -498,6 +507,81 @@
     }
   },
   "definitions": {
+    "Usuario": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "nome": {
+          "type": "string",
+          "example": "Nathaly"
+        },
+        "email": {
+          "type": "string",
+          "example": "nathalykaubatz@gmail.com"
+        },
+        "senha": {
+          "type": "string",
+          "example": "123"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-14T19:46:57.326Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-14T19:46:57.326Z"
+        }
+      }
+    },
+    "NovoUsuario": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "example": "Leticia Nunes"
+        },
+        "email": {
+          "type": "string",
+          "example": "leticianunes@gmail.com"
+        },
+        "senha": {
+          "type": "string",
+          "example": "123"
+        }
+      }
+    },
+    "Loja": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "cnpj": {
+          "type": "string",
+          "example": "00111222000133"
+        },
+        "nome": {
+          "type": "string",
+          "example": "Loja Matriz"
+        },
+        "endereco": {
+          "type": "string",
+          "example": "Rua Voluntários da Franca, 1000, Centro - Franca/SP"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-14T03:00:00.000Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-14T03:00:00.000Z"
+        }
+      }
+    },
     "Produto": {
       "type": "object",
       "properties": {
@@ -511,7 +595,7 @@
         },
         "marca": {
           "type": "string",
-          "example": "acer"
+          "example": "Acer"
         },
         "categoria": {
           "type": "string",
@@ -523,31 +607,137 @@
         }
       }
     },
-    "NovoProduto": {
+    "Cliente": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 2
+        },
+        "nome": {
+          "type": "string",
+          "example": "Celiane Brasil"
+        },
+        "cpf": {
+          "type": "string",
+          "example": "12312312344"
+        },
+        "endereco": {
+          "type": "string",
+          "example": "Ruuuuuuuua, 1 - Brasil"
+        },
+        "email": {
+          "type": "string",
+          "example": "celiane@celiane.com"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-14T20:34:33.574Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-14T20:34:33.574Z"
+        }
+      }
+    },
+    "NovoCliente": {
       "type": "object",
       "properties": {
         "nome": {
           "type": "string",
-          "example": "Monitor Pro Gamer"
+          "example": "Celiane Brasil"
         },
-        "marca": {
+        "cpf": {
           "type": "string",
-          "example": "LG"
+          "example": "12312312344"
         },
-        "categoria": {
+        "endereco": {
           "type": "string",
-          "example": "Informática"
+          "example": "Ruuuuuuuua, 1 - Brasil"
         },
-        "preco": {
-          "type": "number",
-          "example": 1500
+        "email": {
+          "type": "string",
+          "example": "celiane@celiane.com"
         }
       },
       "required": [
         "nome",
-        "marca",
-        "categoria",
-        "preco"
+        "cpf",
+        "endereco",
+        "email"
+      ]
+    },
+    "Compra": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "data": {
+          "type": "string",
+          "example": "2021-09-14T19:47:39.867Z"
+        },
+        "valorTotal": {
+          "type": "number",
+          "example": 0
+        },
+        "pagamento": {
+          "type": "string",
+          "example": "DINHEIRO"
+        },
+        "status": {
+          "type": "string",
+          "example": "RETIRADO"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-14T19:47:39.868Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-14T20:16:28.487Z"
+        },
+        "LojaId": {
+          "type": "number",
+          "example": 1
+        },
+        "ClienteId": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "NovaCompra": {
+      "type": "object",
+      "properties": {
+        "valorTotal": {
+          "type": "number",
+          "example": 0
+        },
+        "pagamento": {
+          "type": "string",
+          "example": "DINHEIRO"
+        },
+        "LojaId": {
+          "type": "number",
+          "example": 1
+        },
+        "ClienteId": {
+          "type": "number",
+          "example": 1
+        },
+        "ProdutoId": {
+          "type": "number",
+          "example": 1
+        }
+      },
+      "required": [
+        "valorTotal",
+        "pagamento",
+        "LojaId",
+        "ClienteId",
+        "ProdutoId"
       ]
     }
   }
