@@ -6,8 +6,8 @@ const endpointFiles = ['./src/app.js']
 const doc = {
   info: {
       version: "1.0.0",
-      title: "Desafio Luiza<code> - Squad C: ENIAC girls",
-      description: "Projeto desenvolvido para o desafio final do Luiza<code> 3"
+      title: "Desafio Luiza code - Squad C: ENIAC girls",
+      description: "Projeto desenvolvido para o desafio final do Luiza code 3"
   },
   host: "localhost:3001",
   basePath: "/",
@@ -16,8 +16,24 @@ const doc = {
   produces: ['application/json'],
   tags: [
       { 
+          "name": "Usuario",
+          "description": "Endpoints relacionados ao recurso de usuario"
+      },      
+      { 
+        "name": "Loja",
+        "description": "Endpoints relacionados ao recurso de loja"
+      },
+      { 
           "name": "Produto",
           "description": "Endpoints relacionados ao recurso de produto"
+      },
+      { 
+        "name": "Cliente",
+        "description": "Endpoints relacionados ao recurso de cliente"
+      },
+      { 
+        "name": "Compra",
+        "description": "Endpoints relacionados ao recurso de compra"
       }
   ],
   definitions: {
