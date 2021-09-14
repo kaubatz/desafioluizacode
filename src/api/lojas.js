@@ -9,7 +9,7 @@ const lojaService = new LojaService(loja);
 
 router.get('/', autenticacao, async (req, res) => {
   /*
-    #swagger.tags = ['Lojas']
+    #swagger.tags = ['Loja']
     #swagger.description = 'Endpoint parra obter uma lista de lojas' 
 
     #swagger.security = [{

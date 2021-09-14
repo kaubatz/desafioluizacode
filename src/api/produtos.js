@@ -9,7 +9,7 @@ const produtoService = new ProdutoService(produto)
 
 router.get('/', autenticacao, async (req, res) => {
     /*
-    #swagger.tags = ['Produtos']
+    #swagger.tags = ['Produto']
     #swagger.description = 'Endpoint parra obter uma lista de produto' 
 
     #swagger.security = [{

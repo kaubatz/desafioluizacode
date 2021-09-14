@@ -2,8 +2,6 @@ const { NOW, Sequelize } = require("sequelize");
 
 const compra = (sequelize, DataTypes) => {
     const Compra = sequelize.define('Compra', {
-        loja_id: DataTypes.INTEGER,                        
-        cliente_id: DataTypes.INTEGER,
         data: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
         valorTotal: DataTypes.FLOAT,
         pagamento: DataTypes.STRING(15), //dinheiro, crédito, débito, boleto

@@ -1,7 +1,5 @@
 const item = (sequelize, DataTypes) => {
-    const Item = sequelize.define('Item', {
-        compra_id: DataTypes.INTEGER,            
-        produto_id: DataTypes.INTEGER,            
+    const Item = sequelize.define('Item', {         
         quantidade: DataTypes.INTEGER,            
         valorTotal: DataTypes.FLOAT        
     }, { tableName: 'item' })

@@ -1,28 +1,26 @@
-delete from loja;
-delete from produto;
+insert into loja (cnpj, nome, endereco, "createdAt", "updatedAt") 
+values ('00111222000133', 'Loja Matriz', 'Rua Volunt·rios da Franca, 1000, Centro - Franca/SP', '2021-09-14', '2021-09-14');
 
-insert into loja (cnpj, nome, endereco) 
-values ('0123456789', 'loja 1', 'rua A, 123, centro - franca/sp');
+insert into loja (cnpj, nome, endereco, "createdAt", "updatedAt") 
+values ('44555666000177', 'Loja 2 - Santa Ursula', 'Rua Getulio Vargas, 2000, Centro - Ribeirao Preto/SP', '2021-09-14', '2021-09-14');
 
-insert into loja (cnpj, nome, endereco) 
-values ('0000000', 'loja 2', 'rua B, 123, centro - ribeirao preto/sp');
+insert into loja (cnpj, nome, endereco, "createdAt", "updatedAt") 
+values ('88999111000122', 'Loja 3 - Iguatemi', 'Rua Presidente Prudente, 3000, Centro - S„o Paulo/SP', '2021-09-14', '2021-09-14');
 
-insert into loja (cnpj, nome, endereco) 
-values ('1111111', 'loja 3', 'rua ABC, 123, centro - s√£o paulo/sp');
+insert into produto (nome, marca, categoria, preco, "createdAt", "updatedAt")
+values('Geladeira A', 'Consul', 'Eletro', 1500.00, '2021-09-14', '2021-09-14');
 
-insert into produto (nome, marca, categoria, preco)
-values('geladeira A', 'consul', 'eletro', 1500.00);
+insert into produto (nome, marca, categoria, preco, "createdAt", "updatedAt")
+values('Microondas B', 'Electrolux', 'Eletro', 400.00, '2021-09-14', '2021-09-14');
 
-insert into produto (nome, marca, categoria, preco)
-values('microondas B', 'electrolux', 'eletro', 400.00);
+insert into produto (nome, marca, categoria, preco, "createdAt", "updatedAt")
+values('Cama Box A', 'Castor', 'Moveis', 2500.00,'2021-09-14', '2021-09-14');
 
-insert into produto (nome, marca, categoria, preco)
-values('cama box A', 'castor', 'moveis', 2500.00);
+insert into produto (nome, marca, categoria, preco, "createdAt", "updatedAt")
+values('Guarda Roupa Casal B', 'Araplac', 'Moveis', 900.00, '2021-09-14', '2021-09-14');
 
-insert into produto (nome, marca, categoria, preco)
-values('guarda roupa casal B', 'araplac', 'moveis', 900.00);
+insert into produto (nome, marca, categoria, preco, "createdAt", "updatedAt")
+values('Notebook Inspiron', 'DELL', 'Informatica', 2900.00, '2021-09-14', '2021-09-14');
 
-
-
-select * from loja;
-select * from produto;
+insert into produto (nome, marca, categoria, preco, "createdAt", "updatedAt")
+values('Monitor 24 pol', 'LG', 'Informatica', 1500.00, '2021-09-14', '2021-09-14');

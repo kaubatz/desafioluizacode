@@ -115,7 +115,7 @@
         "tags": [
           "Cliente"
         ],
-        "description": "Endpoint parra obter uma lista de clientes",
+        "description": "Endpoint para obter uma lista de clientes",
         "parameters": [],
         "responses": {
           "200": {
@@ -243,10 +243,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "ClienteId": {
+                "ProdutoId": {
                   "example": "any"
                 },
-                "ProdutoId": {
+                "ClienteId": {
                   "example": "any"
                 },
                 "valor_total": {
@@ -287,6 +287,87 @@
             "apiKeyAuth": []
           }
         ]
+      }
+    },
+    "/compras/{cli}/{prod}": {
+      "delete": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "cli",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "prod",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/compras/finalizar": {
+      "put": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idCompra": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/compras/entregar": {
+      "put": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idCompra": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
       }
     },
     "/usuarios/": {

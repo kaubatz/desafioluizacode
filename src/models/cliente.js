@@ -3,17 +3,11 @@ const cliente = (sequelize, DataTypes) => {
         nome: DataTypes.STRING(100),
         cpf: DataTypes.STRING(11),
         endereco: DataTypes.STRING(150),
-        email: DataTypes.STRING(150),
-        usuario_id: DataTypes.INTEGER
+        email: DataTypes.STRING(150)
     }, { tableName: 'cliente' })
     
-    Cliente.associate = (models) => {
-        Cliente.belongsTo(models.Usuario, { 
-            constraint: true,
-            foreignKey: 'usuario_id'
-        });   
-      }; 
     return Cliente
 }
+
 
 module.exports = cliente;
