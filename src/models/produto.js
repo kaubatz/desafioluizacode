@@ -4,7 +4,7 @@ const produto = (sequelize, DataTypes) => {
         marca: DataTypes.STRING(100),
         categoria: DataTypes.STRING(100),
         preco: DataTypes.DOUBLE
-    }, { timestamps: false, tableName: 'produto' })
+    }, { tableName: 'produto' })
     
     return Produto
   }

@@ -1,10 +1,8 @@
 const item = (sequelize, DataTypes) => {
-    const Item = sequelize.define('Item', {
-        compra_id: DataTypes.INTEGER,            
-        produto_id: DataTypes.INTEGER,            
+    const Item = sequelize.define('Item', {         
         quantidade: DataTypes.INTEGER,            
         valorTotal: DataTypes.FLOAT        
-    }, { timestamps: false, tableName: 'item' })
+    }, { tableName: 'item' })
 
     Item.associate = (models) => {
         Item.belongsTo(models.Compra, { 

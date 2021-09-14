@@ -9,11 +9,14 @@ app.use(express.json())
 app.use('/', routers)
 app.use('/documentacao', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
-//{ force: true }
+
+// sequelize.sync({ force: true }).then(() => {
+//   console.log('Conectado ao banco de dados\n\n\n\n\n\n\n\n')
+// })
+
 sequelize.sync().then(() => {
   console.log('Conectado ao banco de dados\n\n\n\n\n\n\n\n')
 })
-
 
 app.listen(3001, () => {
   console.log('Servidor pronto, escutando porta 3001!\n\n')
