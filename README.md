@@ -21,6 +21,7 @@ Uma das funcionalidades mais interessantes em um e-commerce é a Omni Channel. O
   - Finalizar compra;
   - Consultar compras realizadas da cliente;
 
+<b> Vídeo de demonstração do funcionamento da API no Insomnia: https://www.youtube.com/watch?v=6j9qf_woubU </b>
 
 ## Ferramentas utilizadas
 Para executar o projeto será necessário instalar os seguintes programas:
